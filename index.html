@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAGGIE · 个人主页</title>
+  <!-- Font Awesome 图标库 (v6) 用于头像占位和社交图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== 全局变量 ===== */
+    :root {
+      --primary-color: #a78bfa;       /* 温柔的紫色，适合 MAGGIE */
+      --bg-color: #faf9ff;             /* 浅紫白背景 */
+      --card-bg: #ffffff;               /* 卡片白色 */
+      --text-color: #2e2930;            /* 深灰色 */
+      --text-light: #6b5e6b;            /* 辅助紫色灰 */
+      --border-radius: 28px;             /* 圆角 */
+      --shadow: 0 20px 30px -10px rgba(120, 80, 150, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem 2rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      position: relative;
+      display: inline-block;
+      color: var(--text-color);
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary-color);
+      border-radius: 4px;
+    }
+
+    /* ===== 头部资料 ===== */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background-color: #ede9fe;         /* 浅紫色背景 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      border: 4px solid white;
+      box-shadow: 0 12px 20px -10px rgba(120, 80, 150, 0.3);
+    }
+
+    .avatar i {
+      font-size: 7rem;
+      color: #c4b5fd;                   /* 柔和紫色图标 */
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .name {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+      color: #2e2930;
+    }
+
+    .headline {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .short-bio {
+      max-width: 650px;
+      margin: 0.5rem auto 1.5rem;
+      color: var(--text-light);
+      font-size: 1.1rem;
+      background-color: #f5f3ff;         /* 浅紫背景 */
+      padding: 1.5rem 2rem;
+      border-radius: 50px;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: #f5f3ff;
+      color: var(--text-color);
+      padding: 0.6rem 1.4rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .contact-links a:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* ===== 关于我（简介详细版） ===== */
+    .about-text {
+      font-size: 1.1rem;
+      color: var(--text-color);
+      background-color: #f8f7ff;
+      padding: 2rem 2.2rem;
+      border-radius: 40px;
+      margin-top: 0.5rem;
+      line-height: 1.9;
+      border: 1px solid #ede9fe;
+    }
+
+    /* ===== 兴趣标签（旅游/学习/挑战） ===== */
+    .interests-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .interest-tag {
+      background-color: #ede9fe;
+      padding: 0.6rem 1.6rem;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #2e2930;
+      transition: 0.2s;
+      border: 1px solid transparent;
+    }
+    .interest-tag:hover {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: white;
+    }
+
+    /* ===== 技能/学习领域 ===== */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .skill-tag {
+      background-color: #f5f3ff;
+      padding: 0.5rem 1.3rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-color);
+    }
+
+    /* ===== 项目/学习挑战卡片 ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background-color: #faf9ff;
+      border-radius: 32px;
+      padding: 1.8rem 1.5rem;
+      transition: all 0.25s;
+      border: 1px solid #f0eaff;
+    }
+    .project-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 25px -10px rgba(150, 120, 200, 0.15);
+      border-color: var(--primary-color);
+    }
+
+    .project-icon {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .project-desc {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .project-tag {
+      background-color: #e9e2ff;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .project-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .project-link i {
+      font-size: 0.9rem;
+      transition: transform 0.15s;
+    }
+    .project-link:hover i {
+      transform: translateX(4px);
+    }
+
+    /* ===== 社交媒体 ===== */
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      background-color: #f5f3ff;
+      padding: 2rem 1.5rem;
+      border-radius: 60px;
+    }
+    .social-links a {
+      color: var(--text-color);
+      font-size: 2rem;
+      transition: all 0.15s;
+      line-height: 1;
+    }
+    .social-links a:hover {
+      color: var(--primary-color);
+      transform: translateY(-5px);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 1.8rem 1.2rem; }
+      .name { font-size: 2.2rem; }
+      .short-bio { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- ==================== 头部资料 ==================== -->
+    <header class="profile">
+      <!-- 头像区域：默认显示紫色头像图标，如需真实照片请替换为下方img标签 -->
+      <div class="avatar">
+        <!-- 使用图标占位 (推荐换上你自己的照片) -->
+        <i class="fas fa-user-graduate"></i>   <!-- 研究生帽图标，更符合身份 -->
+        <!-- 如果你有头像，请注释上面一行，取消下面注释并填写图片路径 -->
+        <!-- <img src="images/maggie-avatar.jpg" alt="MAGGIE的头像"> -->
+      </div>
+
+      <h1 class="name">MAGGIE</h1>
+      <div class="headline">在读研究生 · 终身学习者</div>
+
+      <!-- 简短介绍（显示在彩色区块里） -->
+      <p class="short-bio">
+        🌱 我是一名正在读书的研究生，喜欢旅游，探索学习新的知识。<br>
+        本次学习 AI 知识和技能是我的一个新挑战，希望能用代码和创意让世界更美好。
+      </p>
+
+      <!-- 联系按钮（可自定义链接） -->
+      <div class="contact-links">
+        <a href="mailto:maggie@example.com"><i class="fas fa-envelope"></i> 邮箱</a>
+        <a href="#"><i class="fas fa-map-marked-alt"></i> 旅行日志</a>
+        <a href="#"><i class="fas fa-robot"></i> AI 学习笔记</a>
+      </div>
+    </header>
+
+    <!-- ==================== 关于我（详细版） ==================== -->
+    <section>
+      <h2>关于我</h2>
+      <div class="about-text">
+        <p>📖 目前我正在攻读研究生学位，专业是信息管理与信息系统。我的研究方向偏向于数据分析和人机交互，但课余时间我几乎把所有热情都投入在了“探索”上——探索新的城市、探索新的知识领域、探索自我的可能性。</p>
+        <p style="margin-top: 1rem;">✈️ 我喜欢旅游，至今已经走过 9 个国家，每到一个地方我都会记录下当地的人文与技术融合的细节。最近，我给自己定了一个挑战：系统学习 AI 知识和技能，从 Python 机器学习到深度学习应用。这很难，但充满乐趣！</p>
+        <p style="margin-top: 1rem;">⚡ 我相信，保持好奇心是年轻最好的状态。这个网站就是我学习 HTML/CSS 的第一个小作品，未来会不断迭代。</p>
+      </div>
+    </section>
+
+    <!-- ==================== 兴趣 & 挑战 ==================== -->
+    <section>
+      <h2>兴趣 · 挑战</h2>
+      <div class="interests-list">
+        <span class="interest-tag"><i class="fas fa-plane-departure" style="margin-right: 6px;"></i> 旅游</span>
+        <span class="interest-tag"><i class="fas fa-book-open" style="margin-right: 6px;"></i> 探索新知</span>
+        <span class="interest-tag"><i class="fas fa-brain" style="margin-right: 6px;"></i> AI 挑战</span>
+        <span class="interest-tag"><i class="fas fa-camera-retro" style="margin-right: 6px;"></i> 摄影</span>
+        <span class="interest-tag"><i class="fas fa-music" style="margin-right: 6px;"></i> 民谣</span>
+        <!-- 你可以自由增删上面的兴趣标签 -->
+      </div>
+
+      <!-- 正在学习的技能标签 -->
+      <h2 style="margin-top: 2.5rem;">正在学习</h2>
+      <div class="skills-list">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">机器学习基础</span>
+        <span class="skill-tag">Prompt 工程</span>
+        <span class="skill-tag">Hugging Face</span>
+        <span class="skill-tag">数据分析 (Pandas)</span>
+        <span class="skill-tag">前端三件套</span>
+        <span class="skill-tag">AI 绘画</span>
+        <!-- 修改为你实际在学的技能 -->
+      </div>
+    </section>
+
+    <!-- ==================== 项目/学习挑战 ==================== -->
+    <section>
+      <h2>我的挑战项目</h2>
+      <div class="projects-grid">
+        <!-- 项目卡片 1 - AI 学习笔记 -->
+        <article class="project-card">
+          <div class="project-icon"><i class="fas fa-robot"></i></div>
+          <h3 class="project-title">AI 新手村挑战</h3>
+          <p class="project-desc">从零开始记录 AI 学习路径：包括吴恩达课程笔记、kaggle 入门、以及自己尝试训练的一个小模型。</p>
+          <div class="project-tags">
+            <span class="project-tag">深度学习</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">笔记</span>
+          </div>
+          <a href="#" class="project-link">学习笔记 <i class="fas fa-arrow-right"></i></a>
+        </article>
+
+        <!-- 项目卡片 2 - 旅行地图博客 -->
+        <article class="project-card">
+          <div class="project-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <h3 class="project-title">旅行的足迹</h3>
+          <p class="project-desc">一个用简单HTML+JS制作的小地图，标记我去过的地方，并写下每个城市的小故事。</p>
+          <div class="project-tags">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Leaflet</span>
+            <span class="project-tag">故事</span>
+          </div>
+          <a href="#" class="project-link">查看地图 <i class="fas fa-arrow-right"></i></a>
+        </article>
+
+        <!-- 项目卡片 3 - 挑战打卡 -->
+        <article class="project-card">
+          <div class="project-icon"><i class="fas fa-calendar-check"></i></div>
+          <h3 class="project-title">AI 百日打卡</h3>
+          <p class="project-desc">100天持续学习AI，每天一个小进展，用表格记录自己的坚持。</p>
+          <div class="project-tags">
+            <span class="project-tag">习惯</span>
+            <span class="project-tag">打卡</span>
+            <span class="project-tag">Notion</span>
+          </div>
+          <a href="#" class="project-link">打卡记录 <i class="fas fa-arrow-right"></i></a>
+        </article>
+
+        <!-- 你可以继续添加新的卡片，只需复制上面任意一个article并修改内容 -->
+      </div>
+    </section>
+
+    <!-- ==================== 社交媒体 ==================== -->
+    <section>
+      <h2>保持联系</h2>
+      <div class="social-links">
+        <!-- 替换 href 为你的真实链接，可以增删图标 -->
+        <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" target="_blank" aria-label="小红书"><i class="fab fa-xiaohongshu" style="font-family: 'Font Awesome 6 Brands'; font-weight: 400;">📕</i></a>  <!-- 小红书暂时没有官方图标，用emoji代替或换其他 -->
+        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank" aria-label="个人博客"><i class="fas fa-pencil-alt"></i></a>
+        <a href="mailto:maggie@example.com" aria-label="邮箱"><i class="fas fa-envelope"></i></a>
+        <!-- 注意：小红书没有官方品牌图标，你可以使用自定义图片或保留为文本。这里暂时用📕代替，也可以换成知乎微博等 -->
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 MAGGIE · 保持好奇，持续挑战</p>
+      <p style="margin-top: 0.3rem; font-size: 0.85rem;">由 MAGGIE 用 ❤️ 制作，基于个人模板修改</p>
+    </footer>
+  </div>
+  <!-- 说明：所有文字、链接、图标均可自由修改。头像建议替换为真实照片。祝你学习愉快！ -->
+</body>
+</html>
