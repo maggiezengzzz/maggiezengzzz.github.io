@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+</head>
+<body>
+  <div class="container">
+    <!-- ==================== 头部资料 ==================== -->
+    <header class="profile">
+      <!-- 头像区域：默认使用 Font Awesome 图标，如需使用真实图片，请替换下面的<i>为<img> -->
+      <div class="avatar">
+        <!-- 如果你有自己的头像，请注释掉下一行的 <i>，并取消下面 <img> 的注释，填上你的图片路径 -->
+        <i class="fas fa-user-circle"></i>
+        <!-- <img src="你的图片路径.jpg" alt="个人头像"> -->
+      </div>
+
+      <!-- 你的全名 -->
+      <h1 class="name">李小明</h1>
+      <!-- 简短的头衔/标语 -->
+      <div class="headline">前端开发 & 独立创作者</div>
+      <!-- 一句极短的介绍 -->
+      <p class="short-bio">
+        热爱代码与设计，构建简洁优雅的数字化体验。现居上海，自由职业。
+      </p>
+
+      <!-- 主要联系方式按钮（邮箱、简历等） -->
+      <div class="contact-links">
+        <!-- 修改 href 为你的邮箱地址 -->
+        <a href="mailto:yourname@example.com"><i class="fas fa-envelope"></i> 电子邮箱</a>
+        <!-- 如果不想放简历，可以删除或替换为其他链接 -->
+        <a href="#"><i class="fas fa-file-pdf"></i> 个人简历</a>
+        <!-- 可以是作品集链接等 -->
+        <a href="#"><i class="fas fa-briefcase"></i> 作品集</a>
+      </div>
+    </header>
+
+    <!-- ==================== 关于我 ==================== -->
+    <section>
+      <h2>关于我</h2>
+      <div class="about-text">
+        <!-- 在这里详细描述你自己：背景、兴趣、目前做什么 -->
+        <p>你好！我是李小明，一名有5年经验的前端开发者。我喜欢将复杂的问题简化为直观、友好的界面。目前我专注于使用 Vue 和 React 构建创意项目，并探索交互设计与用户体验。</p>
+        <p style="margin-top: 1rem;">在工作之外，我热衷于开源贡献、撰写技术博客，也喜欢摄影和户外徒步。相信技术和创造力可以一起让世界变得更好。</p>
+        <!-- 你可以增加或删减段落，完全自由 -->
+      </div>
+    </section>
+
+    <!-- ==================== 技能 ==================== -->
+    <section>
+      <h2>技能</h2>
+      <div class="skills-list">
+        <!-- 按需修改或增删技能标签，可以直接改文字 -->
+        <span class="skill-tag">HTML5 & CSS3</span>
+        <span class="skill-tag">JavaScript (ES6+)</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Vue</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">Tailwind</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">UX 设计基础</span>
+        <!-- 你可以继续添加，会自动换行 -->
+      </div>
+    </section>
+
+    <!-- ==================== 项目作品 ==================== -->
+    <section>
+      <h2>项目作品</h2>
+      <div class="projects-grid">
+        <!-- 项目卡片 1 - 修改文字/链接/图标 -->
+        <article class="project-card">
+          <div class="project-icon"><i class="fas fa-paint-brush"></i></div>
+          <h3 class="project-title">视觉设计系统</h3>
+          <p class="project-desc">一个可复用的设计系统，包含颜色、组件和布局规范，帮助团队快速构建一致的产品界面。</p>
+          <div class="project-tags">
+            <span class="project-tag">Figma</span>
+            <span class="project-tag">设计令牌</span>
+            <span class="project-tag">Storybook</span>
+          </div>
+          <a href="#" class="project-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+        </article>
+
+        <!-- 项目卡片 2 -->
+        <article class="project-card">
+          <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+          <h3 class="project-title">个人数据仪表盘</h3>
+          <p class="project-desc">一个开源的仪表盘项目，用来可视化日常习惯、支出和任务进度，全部数据本地存储。</p>
+          <div class="project-tags">
+            <span class="project-tag">Vue 3</span>
+            <span class="project-tag">D3.js</span>
+            <span class="project-tag">LocalStorage</span>
+          </div>
+          <a href="#" class="project-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+        </article>
+
+        <!-- 项目卡片 3 -->
+        <article class="project-card">
+          <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3 class="project-title">天气小窝 · 小程序</h3>
+          <p class="project-desc">一款极简天气微信小程序，支持未来7天预报和空气质量，界面优雅无广告。</p>
+          <div class="project-tags">
+            <span class="project-tag">微信小程序</span>
+            <span class="project-tag">云开发</span>
+            <span class="project-tag">canvas</span>
+          </div>
+          <a href="#" class="project-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+        </article>
+
+        <!-- 你可以继续增加或删除卡片，保持结构一致即可 -->
+      </div>
+    </section>
+
+    <!-- ==================== 社交媒体 & 联系 ==================== -->
+    <section>
+      <h2>保持联系</h2>
+      <div class="social-links">
+        <!-- 修改 href 为你的个人主页/社交链接，可以增删图标，图标名称参考 Font Awesome 文档 -->
+        <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" target="_blank" aria-label="小红书/博客等"><i class="fab fa-medium"></i></a>
+        <a href="#" target="_blank" aria-label="个人邮箱"><i class="fas fa-envelope"></i></a>
+        <!-- 如果你有微博、知乎等，可以继续添加，例如 <a href="#"><i class="fab fa-weibo"></i></a> -->
+      </div>
+    </section>
+
+    <!-- 页脚，请替换为你的名字和年份 -->
+    <footer>
+      <p>© 2026 李小明 · 保留部分权利</p>
+      <p style="margin-top: 0.3rem; font-size: 0.85rem;">由你自由修改，源于此模板</p>
+    </footer>
+  </div>
+
+  <!-- 说明：所有文字、链接、图标均可直接替换，按需增删模块。祝你拥有一个漂亮的个人主页！ -->
+</body>
+</html>
